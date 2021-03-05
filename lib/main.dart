@@ -44,6 +44,16 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Input(konversiController: konversiController),
+              DropdownButton(
+                items: [
+                  DropdownMenuItem(
+                    value: "Kelvin", child: Container(child: Text("Kelvin"))),
+                  DropdownMenuItem(
+                    value: "Reamur", child: Container(child: Text("Reamur"))),
+                ],
+                value: null,
+                onChanged: (String changeValue){},
+              ),
               Result(celciusToKelvin: _celciusToKelvin, celciusToReamur: _celciusToReamur),
               Convert(konvertHandler: _konversiSuhu),
             ],
