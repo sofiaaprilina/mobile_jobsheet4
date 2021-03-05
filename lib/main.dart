@@ -19,6 +19,8 @@ class _MyAppState extends State<MyApp> {
   double _inputUser = 0;
   double _celciusToKelvin = 0;
   double _celciusToReamur = 0;
+  String _newValue = "Kelvin";
+  double _result = 0;
 
   var listItem = ["Kelvin","Reamur"];
 
@@ -54,7 +56,7 @@ class _MyAppState extends State<MyApp> {
                     value: value,
                     child: Text(value),);
                 }).toList(),
-                value: null,
+                value: _newValue,
                 onChanged: (String changeValue){},
               ),
               Result(celciusToKelvin: _celciusToKelvin, celciusToReamur: _celciusToReamur),
