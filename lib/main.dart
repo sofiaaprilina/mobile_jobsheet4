@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'widgets/dropdownKonversi.dart';
 import 'widgets/input.dart';
 import 'widgets/result.dart';
 import 'widgets/convert.dart';
+import 'widgets/riwayatKonversi.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   double _result = 0;
 
   var listItem = ["Kelvin","Reamur"];
-  List<String> listViewItem = List<String>();
+  List<String> listViewItem = [];
 
   void _konversiSuhu(){
     setState(() {
@@ -59,15 +61,7 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Input(konversiController: konversiController),
-              DropdownButton<String>(
-                items: listItem.map((String value){
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),);
-                }).toList(),
-                value: _newValue,
-                onChanged: dropdownOnChanged,
-              ),
+              DropdownKonversi(listItem: listItem, newValue: _newValue, dropdownOnChanged: dropdownOnChanged),
               Result(result: _result),
               Convert(konvertHandler: _konversiSuhu),
               Container(
@@ -78,15 +72,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               Expanded(
-                child: ListView(
-                  children: listViewItem.map((String value) {
-                    return Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        value,
-                        style: TextStyle(fontSize: 15),
-                    ));
-                }).toList()),
+                child: RiwayatKonversi(listViewItem: listViewItem),
               ),
             ],
           ),
