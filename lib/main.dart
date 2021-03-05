@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
                 value: _newValue,
                 onChanged: dropdownOnChanged,
               ),
-              Result(celciusToKelvin: _celciusToKelvin, celciusToReamur: _celciusToReamur),
+              Result(result: _result,),
               Convert(konvertHandler: _konversiSuhu),
             ],
           ),
