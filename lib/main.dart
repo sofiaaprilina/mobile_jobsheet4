@@ -28,10 +28,14 @@ class _MyAppState extends State<MyApp> {
   void _konversiSuhu(){
     setState(() {
       _inputUser = double.parse(konversiController.text);
-      if (_newValue == "Kelvin")
+      if (_newValue == "Kelvin"){
         _result = _inputUser + 273;
-      else
-        _result = (4 / 5) * _inputUser;
+        listViewItem.add("Kelvin : "+ '$_result');
+      }
+      else{
+       _result = (4 / 5) * _inputUser;
+        listViewItem.add("Reamur : "+ '$_result');
+      }
     });
   }
 
