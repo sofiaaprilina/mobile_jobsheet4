@@ -35,6 +35,7 @@ class _MyAppState extends State<MyApp> {
   void dropdownOnChanged(String changeValue) {
     setState(() {
       _newValue = changeValue;
+      _konversiSuhu();
     });
   }
 
