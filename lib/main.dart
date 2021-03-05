@@ -31,6 +31,13 @@ class _MyAppState extends State<MyApp> {
       _celciusToReamur = _inputUser * (4/5);
     });
   }
+
+  void dropdownOnChanged(String changeValue) {
+    setState(() {
+      _newValue = changeValue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,14 +57,13 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               Input(konversiController: konversiController),
               DropdownButton<String>(
-                items: 
-                  listItem.map((String value){
+                items: listItem.map((String value){
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),);
                 }).toList(),
                 value: _newValue,
-                onChanged: (String changeValue){},
+                onChanged: dropdownOnChanged,
               ),
               Result(celciusToKelvin: _celciusToKelvin, celciusToReamur: _celciusToReamur),
               Convert(konvertHandler: _konversiSuhu),
